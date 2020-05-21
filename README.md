@@ -1,93 +1,48 @@
-![](https://box.kancloud.cn/5a0aaa69a5ff42657b5c4715f3d49221) 
+# [the new php framework of Zimeiti Contest Management System for Sveil](https://sveil.com)
 
-ThinkPHP 5.1（LTS） —— 12载初心，你值得信赖的PHP框架
-===============
+Zimeiti CMS was created by, and is maintained by [Sveil.com](https://sveil.com), and is a PHP CMS powered by [Thinkphp 5.1](https://github.com/top-think/thinkphp). Feel free to check out the [releases](https://github.com/sveil/zimeiti-cms/releases), [license](LICENSE), [screenshots](SCREENSHOTS.md), and [contribution guidelines](CONTRIBUTING.md).
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/top-think/framework/badges/quality-score.png?b=5.1)](https://scrutinizer-ci.com/g/top-think/framework/?branch=5.1)
-[![Build Status](https://travis-ci.org/top-think/framework.svg?branch=master)](https://travis-ci.org/top-think/framework)
-[![Total Downloads](https://poser.pugx.org/topthink/framework/downloads)](https://packagist.org/packages/topthink/framework)
-[![Latest Stable Version](https://poser.pugx.org/topthink/framework/v/stable)](https://packagist.org/packages/topthink/framework)
-[![PHP Version](https://img.shields.io/badge/php-%3E%3D5.6-8892BF.svg)](http://www.php.net/)
-[![License](https://poser.pugx.org/topthink/framework/license)](https://packagist.org/packages/topthink/framework)
+## Installation
 
-ThinkPHP5.1对底层架构做了进一步的改进，减少依赖，其主要特性包括：
+[PHP](https://php.net) 5.6+ or [HHVM](http://hhvm.com) 3.6+, a database server, and [Composer](https://getcomposer.org) are required.
 
- + 采用容器统一管理对象
- + 支持Facade
- + 更易用的路由
- + 注解路由支持
- + 路由跨域请求支持
- + 验证类增强
- + 配置和路由目录独立
- + 取消系统常量
- + 类库别名机制
- + 模型和数据库增强
- + 依赖注入完善
- + 支持PSR-3日志规范
- + 中间件支持（`V5.1.6+`）
- + 支持`Swoole`/`Workerman`运行（`V5.1.18+`）
+1. There are 3 ways of grabbing the code:
 
-官方已经正式宣布`5.1.27`版本为LTS版本。
+- Use GitHub: simply download the zip on the right of the readme
+- Use Git: `git clone git@github.com:sveil/zimeiti-cms.git`
+- Use Composer: `composer create-project sveil/zimeiti-cms --prefer-dist -s dev`
 
-### 废除的功能：
+2. From a command line open in the folder, run `composer install --no-dev -o` and then `npm install`.
+3. Enter your database details into `config/database.php`.
+4. Run `php artisan app:install` followed by `gulp --production` to setup the application.
+5. You will need to enter your mail server details into `config/mail.php`.
 
- + 聚合模型
- + 内置控制器扩展类
- + 模型自动验证
+- You can disable verification emails in `config/credentials.php`
+- Mail is still required for other functions like password resets and the contact form
+- You must set the contact email in `config/contact.php`
+- I'd recommend [queuing](#setting-up-queing) email sending for greater performance (see below)
 
-> ThinkPHP5.1的运行环境要求PHP5.6+。
+6. Finally, setup an [Apache VirtualHost](http://httpd.apache.org/docs/current/vhosts/examples.html) to point to the "public" folder.
 
+- For development, you can simply run `php artisan serve`
 
-## 安装
+## License
 
-使用composer安装
+GNU AFFERO GENERAL PUBLIC LICENSE
 
-~~~
-composer create-project topthink/think tp
-~~~
+Zimeiti CMS Is A PHP CMS Powered By Thinkphp 5.1
 
-启动服务
+Copyright (C) 2019-2020 Richard
 
-~~~
-cd tp
-php think run
-~~~
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-然后就可以在浏览器中访问
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
 
-~~~
-http://localhost:8000
-~~~
-
-更新框架
-~~~
-composer update topthink/framework
-~~~
-
-
-## 在线手册
-
-+ [完全开发手册](https://www.kancloud.cn/manual/thinkphp5_1/content)
-+ [升级指导](https://www.kancloud.cn/manual/thinkphp5_1/354155) 
-
-## 命名规范
-
-`ThinkPHP5.1`遵循PSR-2命名规范和PSR-4自动加载规范。
-
-## 参与开发
-
-请参阅 [ThinkPHP5 核心框架包](https://github.com/top-think/framework)。
-
-## 版权信息
-
-ThinkPHP遵循Apache2开源协议发布，并提供免费使用。
-
-本项目包含的第三方源码和二进制文件之版权信息另行标注。
-
-版权所有Copyright © 2006-2018 by ThinkPHP (http://thinkphp.cn)
-
-All rights reserved。
-
-ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
-
-更多细节参阅 [LICENSE.txt](LICENSE.txt)
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
