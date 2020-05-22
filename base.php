@@ -24,13 +24,8 @@ Loader::register();
 Error::register();
 
 // 实现日志接口
-if (interface_exists('Logger')) {
-    interface LoggerInterface extends Logger
-    {}
-} else {
-    interface LoggerInterface
-    {}
-}
+interface LoggerInterface extends Logger
+{}
 
 // 注册类库别名
 Loader::addClassAlias([

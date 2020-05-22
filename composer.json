@@ -30,13 +30,7 @@
     "phpdocumentor/reflection-docblock": "^2.0"
   },
   "autoload": {
-    "files": [
-      "lang/en-us.php",
-      "lang/zh-cn.php",
-      "base.php",
-      "convention.php",
-      "helper.php"
-    ],
+    "files": [],
     "psr-4": {
       "think\\": "src"
     }
