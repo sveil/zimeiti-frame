@@ -12,10 +12,8 @@
 
 namespace think;
 
-use Psr\Log\LoggerInterface as Logger;
-
 // 载入Loader类
-require __DIR__ . '/src/Loader.php';
+require __DIR__ . '/library/think/Loader.php';
 
 // 注册自动加载
 Loader::register();
@@ -24,7 +22,7 @@ Loader::register();
 Error::register();
 
 // 实现日志接口
-interface LoggerInterface extends Logger
+interface LoggerInterface extends \Psr\Log\LoggerInterface
 {}
 
 // 注册类库别名
