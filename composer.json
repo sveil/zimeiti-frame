@@ -1,6 +1,6 @@
 {
   "name": "sveil/zimeiti-frame",
-  "description": "the new php framework of Zimeiti Contest Management System for Sveil",
+  "description": "the php framework of Zimeiti Contest Management System for Sveil",
   "type": "framework",
   "keywords": [
     "sveil",
@@ -30,9 +30,7 @@
     "phpdocumentor/reflection-docblock": "^2.0"
   },
   "autoload": {
-    "files": [
-      "base.php"
-    ],
+    "files": [],
     "psr-4": {
       "think\\": "library/think"
     }
