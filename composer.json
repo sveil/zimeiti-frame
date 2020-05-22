@@ -30,7 +30,9 @@
     "phpdocumentor/reflection-docblock": "^2.0"
   },
   "autoload": {
-    "files": [],
+    "files": [
+      "base.php"
+    ],
     "psr-4": {
       "think\\": "library/think"
     }
