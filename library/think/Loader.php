@@ -81,26 +81,6 @@ class Loader
 
         $rootPath = self::getRootPath();
 
-        self::$composerPath = $rootPath . 'vendor' . DIRECTORY_SEPARATOR . 'composer' . DIRECTORY_SEPARATOR;
-
-        // Composer自动加载支持
-        if (is_dir(self::$composerPath)) {
-            if (is_file(self::$composerPath . 'autoload_static.php')) {
-                require self::$composerPath . 'autoload_static.php';
-
-                $declaredClass = get_declared_classes();
-                $composerClass = array_pop($declaredClass);
-
-                foreach (['prefixLengthsPsr4', 'prefixDirsPsr4', 'fallbackDirsPsr4', 'prefixesPsr0', 'fallbackDirsPsr0', 'classMap', 'files'] as $attr) {
-                    if (property_exists($composerClass, $attr)) {
-                        self::${$attr} = $composerClass::${$attr};
-                    }
-                }
-            } else {
-                self::registerComposerLoader(self::$composerPath);
-            }
-        }
-
         // 注册命名空间定义
         self::addNamespace([
             'think'  => __DIR__,
